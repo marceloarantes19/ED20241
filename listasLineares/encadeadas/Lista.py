@@ -71,3 +71,12 @@ class Lista:
       print(aux.getElemento().getValores())
       aux = aux.getProximo()
 
+# Correção dos Exercícos
+# Exercício Nº 3
+  def getQuantidade(self):
+    ret = 0
+    aux = self.getCabeca().getProximo()
+    while aux != None:
+      ret = ret + 1
+      aux = aux.getProximo()
+    return ret
