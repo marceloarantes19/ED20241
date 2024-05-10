@@ -1,9 +1,7 @@
 from Elemento import Elemento
 from No import No
 from Lista import Lista
-from PilhaEncadeada import PilhaEncadeada
 l = Lista()
-p = PilhaEncadeada()
 for i in range(0, 5):
   e = Elemento(i)
   e.setNome(i)
