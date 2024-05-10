@@ -80,3 +80,52 @@ class Lista:
       ret = ret + 1
       aux = aux.getProximo()
     return ret
+
+  # Método RECUSIVO para mostrar os elementos da lista
+  def mostraListaRec(self, n):
+    if n != None:
+      print(n.getElemento().getValores())
+      self.mostraListaRec(n.getProximo())
+
+  # Método RECUSIVO para mostrar os elementos da lista Invertido
+  def mostraListaInv(self, n):
+    if n != None:
+      self.mostraListaInv(n.getProximo())
+      print(n.getElemento().getValores())
+
+  # Insere na Posicao
+  def insereNaPosicao(self, n, pos):
+    if pos > 0 and pos <= (self.getQuantidade() + 1):
+      ind = 1
+      ante  = self.getCabeca()
+      atual = self.getCabeca().getProximo()
+      while atual != None and ind < pos:
+        ante  = atual
+        atual = ante.getProximo()
+        ind = ind + 1
+      n.setProximo(atual)
+      ante.setProximo(n)
+
+  # Retira na Posicao
+  def retiraNaPosicao(self, pos):
+    ret = None
+    if pos > 0 and pos <= self.getQuantidade():
+      ind = 1
+      ante  = self.getCabeca()
+      atual = self.getCabeca().getProximo()
+      while ind < pos:
+        ante  = atual
+        atual = ante.getProximo()
+        ind = ind + 1
+      ante.setProximo(atual.getProximo())
+      atual.setProximo(None)
+      ret = atual
+    return ret
+
+  # Limpando a Lista (Exercício 8)  
+  def limpaLista(self, n):
+    if n != None:
+      self.limpaLista(n.getProximo())
+      n.setProximo(None)
+
+
